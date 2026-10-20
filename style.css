@@ -271,3 +271,54 @@ h4 {
   box-shadow: 0 6px 15px rgba(241, 196, 15, 0.3); /* Lueur dorée au survol */
   cursor: pointer;
 }
+
+/* ========================================================
+   STYLES SPECIFIQUES POUR SMARTPHONES (Écrans de moins de 768px)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  
+  /* 1. Réduit la taille des gros titres pour qu'ils ne débordent pas */
+  h1 {
+    font-size: 2rem !important;
+  }
+  h2 {
+    font-size: 1.8rem !important;
+  }
+  
+  /* 2. Adapte le fond d'écran pour qu'il reste centré et propre sur mobile */
+  body {
+    background-attachment: scroll; /* Évite les bugs de saccades au défilement sur iOS/Android */
+  }
+
+  /* 3. Empile les boutons du menu les uns sous les autres (ou en colonnes plus serrées) */
+  .tab-navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 90%;
+    margin: 20px auto;
+  }
+  
+  .tab-btn {
+    width: 100%; /* Les boutons prennent toute la largeur sur mobile pour cliquer facilement */
+    text-align: center;
+  }
+
+  /* 4. Adapte les lecteurs audio pour qu'ils ne dépassent pas de l'écran */
+  .audio-player {
+    flex-wrap: wrap; /* Permet aux boutons du lecteur de passer à la ligne si l'écran est très étroit */
+    justify-content: center;
+    width: 90% !important;
+    padding: 15px;
+  }
+  
+  /* 5. Ajuste la grille des artworks pour qu'elle s'affiche sur 1 ou 2 colonnes maximum */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  
+  .gallery-grid img {
+    height: 140px; /* Des images un peu plus petites et carrées sur mobile */
+  }
+}
