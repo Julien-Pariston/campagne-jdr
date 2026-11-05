@@ -128,6 +128,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (targetId !== "audio-section") {
         couperTousLesAudios();
       }
+
+      if (targetId !== "audio-section" && targetId !== "ost-section") {
+        couperTousLesAudios();
+      }
     });
   });
 
@@ -174,7 +178,25 @@ document.addEventListener("DOMContentLoaded", () => {
       behavior: "smooth",
     });
   });
+
   // ========================================================
-  // 5. LOGIQUE ET ÉVÉNEMENTS DES LECTEURS OST
+  // 9. LOGIQUE D'ARRÊT SIMULTANÉ POUR LES MUSIQUES OST
   // ========================================================
+  const ostPlayers = document.querySelectorAll(".ost-player");
+
+  ostPlayers.forEach((player) => {
+    player.addEventListener("play", () => {
+      // 1. Coupe les 3 lecteurs principaux du haut du site
+      couperTousLesAudios();
+
+      // 2. Coupe tous les autres lecteurs de la section OST
+      ostPlayers.forEach((otherPlayer) => {
+        if (otherPlayer !== player) {
+          otherPlayer.pause();
+
+          otherPlayer.currentTime = 0; // Réinitialise la position de lecture à 0 pour les autres lecteurs
+        }
+      });
+    });
+  });
 });
