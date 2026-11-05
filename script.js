@@ -24,13 +24,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const stopBtn3 = document.getElementById("stop-btn-chap34");
   const volumeSlider3 = document.getElementById("volume-slider-chap34");
 
+  // Récupération de tous les lecteurs OST
+  const ostPlayers = document.querySelectorAll(".ost-player");
+
   // ========================================================
-  // 2. FONCTION POUR COUPER TOUTES LES PISTES SIMULTANÉMENT
+  // 2. FONCTIONS POUR COUPER LES PISTES
   // ========================================================
   function couperTousLesAudios() {
     if (audio1) audio1.pause();
     if (audio2) audio2.pause();
     if (audio3) audio3.pause();
+  }
+
+  // NOUVELLE FONCTION : Coupe toutes les musiques de la section OST
+  function couperToutesLesMusiquesOST() {
+    ostPlayers.forEach((player) => {
+      player.pause();
+      player.currentTime = 0; // Optionnel : remet la musique au début
+    });
   }
 
   // ========================================================
@@ -40,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (playBtn1)
       playBtn1.addEventListener("click", () => {
         couperTousLesAudios();
+        couperToutesLesMusiquesOST(); // Coupe l'OST si on lance l'intro
         audio1.play();
       });
     if (pauseBtn1)
@@ -64,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (playBtn2)
       playBtn2.addEventListener("click", () => {
         couperTousLesAudios();
+        couperToutesLesMusiquesOST(); // Coupe l'OST si on lance un résumé
         audio2.play();
       });
     if (pauseBtn2)
@@ -88,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (playBtn3)
       playBtn3.addEventListener("click", () => {
         couperTousLesAudios();
+        couperToutesLesMusiquesOST(); // Coupe l'OST si on lance un résumé
         audio3.play();
       });
     if (pauseBtn3)
@@ -125,25 +139,19 @@ document.addEventListener("DOMContentLoaded", () => {
         targetSection.classList.add("active");
       }
 
-      if (targetId !== "audio-section") {
-        couperTousLesAudios();
-      }
-
-      if (targetId !== "audio-section" && targetId !== "ost-section") {
-        couperTousLesAudios();
-      }
+      // MODIFICATION : On coupe TOUT (lecteurs principaux + OST) dès qu'on change d'onglet
+      couperTousLesAudios();
+      couperToutesLesMusiquesOST();
     });
   });
 
   // ========================================================
   // 7. OUVERTURE DES ARTWORKS DANS UN NOUVEL ONGLET
   // ========================================================
-  // Toutes les images situées dans une grille de galerie
   const galleryImages = document.querySelectorAll(".gallery-grid img");
 
   galleryImages.forEach((img) => {
     img.addEventListener("click", () => {
-      // Ouvre le lien de l'image (src) dans un nouvel onglet (_blank)
       window.open(img.src, "_blank");
     });
   });
@@ -153,13 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // ========================================================
   const scrollTopBtn = document.getElementById("scroll-to-top");
 
-  // Fonction réutilisable qui vérifie si le bouton doit être visible
   function verifierAffichageBouton() {
-    const totalHeight = document.documentElement.scrollHeight;
-    const windowHeight = window.innerHeight;
     const scrollPosition = window.scrollY;
-
-    // Si la page est défilable ET qu'on a descendu de plus de 20px
     if (scrollPosition > 20) {
       scrollTopBtn.style.display = "flex";
     } else {
@@ -167,12 +170,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Défilement de la page
   window.addEventListener("scroll", verifierAffichageBouton);
 
-  // Événement 2 : Action au clic sur le bouton
   scrollTopBtn.addEventListener("click", () => {
-    // Remonte la page tout en haut (coordonnées 0,0) de manière fluide
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -182,8 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ========================================================
   // 9. LOGIQUE D'ARRÊT SIMULTANÉ POUR LES MUSIQUES OST
   // ========================================================
-  const ostPlayers = document.querySelectorAll(".ost-player");
-
   ostPlayers.forEach((player) => {
     player.addEventListener("play", () => {
       // 1. Coupe les 3 lecteurs principaux du haut du site
@@ -193,8 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ostPlayers.forEach((otherPlayer) => {
         if (otherPlayer !== player) {
           otherPlayer.pause();
-
-          otherPlayer.currentTime = 0; // Réinitialise la position de lecture à 0 pour les autres lecteurs
+          otherPlayer.currentTime = 0;
         }
       });
     });
