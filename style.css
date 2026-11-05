@@ -250,9 +250,11 @@ h4 {
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, 300px) !important;
+  justify-content: start !important;
+  gap: 20px !important;
+  width: 100%;
 }
 
 .gallery-grid img {
@@ -359,6 +361,46 @@ h4 {
 /* Optionnel : Pour un défilement fluide sur tout le site */
 html {
   scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   --- STYLES DES LECTEURS AUDIO (OST) ---
+   ========================================================================== */
+/* --- ENCADRÉ DE CHAQUE PISTE AUDIO (OST) --- */
+.ost-item {
+  background-color: rgba(34, 47, 77, 0.7) !important;
+  padding: 15px !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+
+  height: 140px !important;
+  box-sizing: border-box !important;
+}
+
+/* --- FORCE L'ALIGNEMENT DES ENCADRÉS DE CHAPITRES --- */
+.ost-chapter-fix {
+  width: 100% !important;
+  display: block !important;
+  clear: both !important;
+  margin-bottom: 25px !important;
+}
+
+.ost-chapter-fix h3 {
+  text-align: left !important;
+  margin-top: 0 !important;
+  margin-bottom: 15px !important;
+}
+
+/* --- LE LECTEUR AUDIO HTML5 --- */
+.ost-player {
+  width: 100%;
+  max-width: 270px;
+  margin-top: auto;
 }
 
 /* ==========================================================================
