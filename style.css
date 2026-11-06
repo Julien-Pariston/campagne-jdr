@@ -1,6 +1,8 @@
 @import url("https://googleapis.com");
 
-/* --- STYLES GENERAUX DE LA PAGE --- */
+/* =======================================
+   --- STYLES GENERAUX DE LA PAGE --- 
+======================================== */
 body {
   background-image: url("Images/Page de garde site.webp");
   background-size: cover;
@@ -96,7 +98,9 @@ h4 {
   font-size: 2rem;
 }
 
-/* --- BARRE DE NAVIGATION (ONGLETS) --- */
+/* ===================================================
+   --- BARRE DE NAVIGATION (ONGLETS) --- 
+ ================================================== */
 .tab-navigation {
   display: flex;
   justify-content: center;
@@ -135,7 +139,9 @@ h4 {
   display: block; /* Affiche uniquement la catégorie sélectionnée */
 }
 
-/* --- LECTEURS AUDIO --- */
+/* =========================================
+          --- LECTEURS AUDIO --- 
+ =========================================*/
 .player-container {
   display: flex;
   justify-content: center;
@@ -201,7 +207,9 @@ h4 {
   order: 4;
 }
 
-/* --- GRILLE DES PERSONNAGES (PJ) --- */
+/* ================================================
+    --- GRILLE DES PERSONNAGES (PJ) --- 
+================================================ */
 .pj-grid {
   display: flex;
   justify-content: center;
@@ -246,7 +254,9 @@ h4 {
   display: block;
 }
 
-/* --- SECTION ARTWORKS & GALERIES RESPONSIVE --- */
+/* ===================================================================
+   --- SECTION ARTWORKS & GALERIES RESPONSIVE ---
+   =================================================================== */
 .artworks-container {
   padding: 20px;
   display: flex;
@@ -319,7 +329,7 @@ h4 {
 
 .gallery-grid img:hover {
   transform: scale(1.04);
-  box-shadow: 0 6px 15px rgba(241, 196, 15, 0.3); /* Lueur dorée au survol parce que c'est classe*/
+  box-shadow: 0 6px 15px rgba(241, 196, 15, 0.3); /* Lueur dorée au survol parce que c'est stylé*/
   cursor: pointer;
 }
 
@@ -411,18 +421,40 @@ html {
   padding: 15px !important;
   border-radius: 10px !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  text-align: left !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
+  align-items: center !important; /* Aligne le contenu horizontalement au milieu */
   height: 140px !important;
   box-sizing: border-box !important;
 }
 
-/* Force tous les titres/textes à l'intérieur des cartes OST à se centrer */
-.ost-item * {
-  text-align: center !important;
+/* CORRECTION 1 & 2 : Centrage du titre et ligne jaune sur toute la largeur */
+.ost-item h4 {
+  color: #ffffff !important;
+  font-family: sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  text-align: center !important; /* Centre horizontalement le texte */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 2px solid #f1c40f !important; /* Ligne jaune d'un bord à l'autre */
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  width: 100% !important; /* Force l'étirement sur toute la carte */
+  padding: 0 0 8px !important; /* Espace entre le texte et la ligne jaune */
+  margin: 0 0 12px !important; /* Écarte la ligne jaune du lecteur audio */
+  box-sizing: border-box;
+}
+
+/* CORRECTION 3 : Empêche le lecteur d'être écrasé ou déformé */
+.ost-item .ost-player {
+  display: block !important;
   width: 100% !important;
+  max-width: 270px !important; /* Garde la taille d'origine propre */
+  height: 40px !important; /* Rétablit sa hauteur native HTML5 */
+  margin: auto auto 0 !important; /* Pousse le lecteur tout en bas de sa carte */
 }
 
 .ost-chapter-fix {
@@ -434,7 +466,7 @@ html {
 
 /* Titres de chapitres internes à la section OST */
 .ost-chapter-fix h3 {
-  text-align: center !important;
+  text-align: left !important;
   margin-top: 0 !important;
   margin-bottom: 15px !important;
   background-color: transparent !important;
@@ -442,11 +474,6 @@ html {
   backdrop-filter: none !important;
   width: 100% !important;
   padding: 0 !important;
-}
-.ost-player {
-  width: 100%;
-  max-width: 270px;
-  margin-top: auto;
 }
 /* ==========================================================================
 --- STYLES DU BAS DE PAGE (FOOTER) COPYRIGHT ---
@@ -459,10 +486,74 @@ html {
 }
 .main-footer p {
   font-size: 0.8rem;
-  /* Nettoyage héritages éventuels sur le paragraphe du footer */
   background-color: transparent !important;
   border: none !important;
   backdrop-filter: none !important;
   width: 100% !important;
   margin: 10px 0 !important;
+}
+
+/* ==========================================================================
+   --- LECTEURS DE L'INTRODUCTION ET DES RÉSUMÉS  ---
+   ========================================================================== */
+.audio-summary-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, 300px) !important;
+  justify-content: center !important;
+  align-items: stretch;
+  gap: 20px !important;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.audio-summary-item {
+  background-color: rgba(34, 47, 77, 0.7) !important;
+  padding: 15px !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  height: 140px !important;
+  box-sizing: border-box !important;
+}
+
+.audio-summary-item .ost-title {
+  color: #ffffff !important;
+  font-family: sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: bold;
+  text-align: center !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 2px solid #f1c40f !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  width: 100% !important;
+  padding: 0 0 8px !important;
+  margin: 0 0 12px !important;
+  box-sizing: border-box;
+}
+
+.audio-summary-item .ost-player {
+  display: block;
+  width: 100% !important;
+  max-width: 270px !important;
+  margin: auto auto 0 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .audio-summary-grid {
+    grid-template-columns: minmax(0, 300px) !important;
+    justify-content: center !important;
+    padding: 0 12px;
+  }
+
+  .audio-summary-item {
+    width: 100%;
+  }
 }
