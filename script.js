@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (audio3) audio3.pause();
   }
 
-  // NOUVELLE FONCTION : Coupe toutes les musiques de la section OST
+  //Coupe toutes les musiques de la section OST
   function couperToutesLesMusiquesOST() {
     ostPlayers.forEach((player) => {
       player.pause();
-      player.currentTime = 0; // Optionnel : remet la musique au début
+      player.currentTime = 0; // Remet la musique au début (bouton stop)
     });
   }
 
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         targetSection.classList.add("active");
       }
 
-      // MODIFICATION : On coupe TOUT (lecteurs principaux + OST) dès qu'on change d'onglet
+      //On coupe TOUT (lecteurs principaux + OST) dès qu'on change d'onglet
       couperTousLesAudios();
       couperToutesLesMusiquesOST();
     });
