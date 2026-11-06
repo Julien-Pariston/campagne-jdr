@@ -20,73 +20,52 @@
       <button class="tab-btn" data-target="ost-section">OST</button>
     </nav>
 
+    <!-- ============================================================== -->
     <!-- ================= SECTION 1 : LECTEURS AUDIO ================= -->
+    <!-- ============================================================== -->
     <section id="audio-section" class="tab-content active">
-      <h2>Introduction à la campagne</h2>
-      <div class="player-container">
-        <div class="audio-player">
-          <audio
-            id="my-audio"
-            src="Audios\Introduction Campagne Héritage de l'Aube.mp3"
-          ></audio>
-          <button id="pause-btn" class="player-btn">⏸ Pause</button>
-          <button id="play-btn" class="player-btn">▶ Play</button>
-          <button id="stopBtn" class="player-btn">■ Stop</button>
-          <input
-            id="volume-slider"
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value="1"
-          />
-        </div>
-      </div>
+      <h2>Résumé de la campagne</h2>
 
-      <h3>Résumé du chapitre 1 & 2</h3>
-      <div class="player-container">
-        <div class="audio-player">
+      <!-- Les lecteurs reprennent exactement la présentation des cartes OST -->
+      <div class="gallery-grid audio-summary-grid">
+        <article class="ost-item audio-summary-item">
+          <h4 class="ost-title">Introduction à la campagne</h4>
           <audio
-            id="my-audio-chap12"
-            src="Audios\Résumé Chap 1 & 2.mp3"
+            class="ost-player main-audio-player"
+            controls
+            preload="metadata"
+            src="Audios/Introduction Campagne Héritage de l'Aube.mp3"
+            aria-label="Introduction à la campagne"
           ></audio>
-          <button id="pause-btn-chap12" class="player-btn">⏸ Pause</button>
-          <button id="play-btn-chap12" class="player-btn">▶ Play</button>
-          <button id="stop-btn-chap12" class="player-btn">■ Stop</button>
-          <input
-            id="volume-slider-chap12"
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value="1"
-          />
-        </div>
-      </div>
+        </article>
 
-      <h4>Résumé du chapitre 3 & 4</h4>
-      <div class="player-container">
-        <div class="audio-player">
+        <article class="ost-item audio-summary-item">
+          <h4 class="ost-title">Résumé du chapitre 1 &amp; 2</h4>
           <audio
-            id="my-audio-chap34"
-            src="Audios\Résumé Chap 3 & 4.mp3"
+            class="ost-player main-audio-player"
+            controls
+            preload="metadata"
+            src="Audios/Résumé Chap 1 &amp; 2.mp3"
+            aria-label="Résumé du chapitre 1 et 2"
           ></audio>
-          <button id="pause-btn-chap34" class="player-btn">⏸ Pause</button>
-          <button id="play-btn-chap34" class="player-btn">▶ Play</button>
-          <button id="stop-btn-chap34" class="player-btn">■ Stop</button>
-          <input
-            id="volume-slider-chap34"
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value="1"
-          />
-        </div>
+        </article>
+
+        <article class="ost-item audio-summary-item">
+          <h4 class="ost-title">Résumé du chapitre 3 &amp; 4</h4>
+          <audio
+            class="ost-player main-audio-player"
+            controls
+            preload="metadata"
+            src="Audios/Résumé Chap 3 &amp; 4.mp3"
+            aria-label="Résumé du chapitre 3 et 4"
+          ></audio>
+        </article>
       </div>
     </section>
-
+    
+    <!-- ================================================================== -->
     <!-- ================= SECTION 2 : FICHES PERSONNAGES ================= -->
+    <!-- ================================================================== -->
     <section id="pj-section" class="tab-content">
       <h2>Fiches des Personnages</h2>
 
@@ -161,7 +140,9 @@
       </div>
     </section>
 
+    <!-- ===================================================================================== -->
     <!-- ================= SECTION 3 : ARTWORKS (Toutes les sous-catégories) ================= -->
+    <!-- ===================================================================================== -->
     <section id="artworks-section" class="tab-content">
       <h2>Artworks</h2>
       <div class="artworks-container">
@@ -382,7 +363,9 @@
   </div>
 </section>
 
+<!-- =================================================== -->
 <!-- ================= SECTION 4 : OST ================= -->
+<!-- =================================================== -->
  <div id="ost-section" class="tab-content">
   <h2>Bande Originale (OST)</h2>
 
@@ -558,12 +541,21 @@
     <div class="gallery-grid"></div>
   </div>
 
+  <div class="artwork-category ost-chapter-fix">
+    <h3>Ashes Of Dawn</h3>
+    <div class="gallery-grid"></div>
+  </div>
+
 </div> 
 
+<!-- ======================== -->
 <!-- Bouton de retour en haut -->
+<!-- ======================== -->
 <button id="scroll-to-top" class="scroll-btn" title="Retour en haut">▲ Retour en haut</button>
 
+<!-- ==================== -->
 <!-- Bas de page copyright-->
+<!-- ==================== -->
   <footer class="main-footer text-center py-3">
     <p class="m-0 small">© 2026 Julien ROUVEURE. Tous droits réservés.</p>
 </footer>
