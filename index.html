@@ -18,6 +18,8 @@
       <button class="tab-btn" data-target="pj-section">Personnages</button>
       <button class="tab-btn" data-target="artworks-section">Artworks</button>
       <button class="tab-btn" data-target="ost-section">OST</button>
+      <button class="tab-btn" data-target="lore-section">Lore Du Jeu</button>
+      <button class="tab-btn" data-target="documents-section">Documents Trouvés</button>
     </nav>
 
     <!-- ============================================================== -->
@@ -212,7 +214,7 @@
 
 <!-- Bloc pour le septième Exorciste -->
     <div class="art-card">
-        <h4>Jotaro Joestar</h4>
+        <h4>Jotaro Kujo</h4>
         <img src="Artworks\Exorcistes\Jotaro et son gardien céleste.webp" alt="Exorciste 7" />
     </div>
 
@@ -250,7 +252,7 @@
           <h3>L'Écho Originel</h3>
           <div class="gallery-grid">
             <img
-              src="Images/Artworks/Innocences/img1.webp"
+              src="Artworks\L'Écho Originel\Alphonsine.webp"
               alt="Pas encore découvert"
             />
           </div>
@@ -270,10 +272,16 @@
         <div class="artwork-category">
           <h3>Culte du Comte</h3>
           <div class="gallery-grid">
-            <img
-              src="Images/Artworks/CulteComte/img1.webp"
-              alt="Pas encore découvert"
-            />
+          <!-- Bloc pour la première photo du culte -->
+            <div class="art-card">
+        <h4>Mana</h4>
+        <img src="Artworks\Le Culte du Comte\Membres du Culte du Comte Éternel.webp" alt="PNJ 1" />
+    </div>
+
+    <!-- Bloc pour la deuxième photo du culte -->
+          <div class="art-card">
+          <h4>Aldric VEYRAN - Jack l'Éventreur</h4>
+            <img src="Artworks\Le Culte du Comte\Aldric VEYRAN Jack.webp" alt="PNJ 2" />
           </div>
         </div>
         </div>
@@ -545,8 +553,103 @@
     <h3>Ashes Of Dawn</h3>
     <div class="gallery-grid"></div>
   </div>
-
 </div> 
+
+    <!-- ==================================================== -->
+    <!-- ================= SECTION 4 : LORE ================= -->
+    <!-- ==================================================== -->
+    <div id="lore-section" class="tab-content"> <!-- Assurez-vous que l'id correspond à votre data-target -->
+    <h2>Lore</h2>
+
+  <!-- Grille pour aligner vos 5 conteneurs de documents -->
+  <div class="pdf-lore-grid">
+
+    <!-- Document 1 : Élipse des 2 ans -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">Élipse des 2 ans</span>
+      <a href="Lore du jeu\Elipse des 2 ans.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+
+    <!-- Document 2 : Histoire d'Alistair Blackthorn -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">Histoire d'Alistair Blackthorn</span>
+      <a href="Lore des PNJ\Lore d'Alistair Blackthorn.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+
+    <!-- Document 3 : Histoire de Lee Grossman -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">Histoire de Lee Grossman</span>
+      <a href="Lore des PNJ\Lore de Lee Grossman.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+
+    <!-- Document 4 : Histoire de Tommy Smith -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">Histoire de Tommy Smith</span>
+      <a href="Lore des PNJ\Lore de Smith.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+
+    <!-- Document 5 : Histoire de Jafare -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">Histoire de Jafare</span>
+      <a href="Lore des PNJ\Lore de Jafare.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+
+    <!-- Document 6 : Histoire de Cross Marian -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">Histoire de Cross Marian</span>
+      <a href="Lore des PNJ\Lore de Cross Marian.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- ================================================================== -->
+    <!-- ================= SECTION 5 : DOCUMENTS TROUVÉS ================= -->
+    <!-- ================================================================== -->
+    <div id="documents-section" class="tab-content"> <!-- Assurez-vous que l'id correspond à votre data-target -->
+    <h2>Documents</h2>
+
+  <!-- Grille pour aligner vos 5 conteneurs de documents -->
+  <div class="pdf-lore-grid">
+
+    <!-- Document 1 : Les Fléaux -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">Les Fléaux</span>
+      <a href="Documents\LES FLÉAUX.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+
+  <!-- Document 2 : 8 Volumes -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">8 Volumes</span>
+      <a href="Documents\8 Volumes.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+
+  <!-- Document 3 : Les Écritures de l'Aube -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">Les Écritures de l'Aube</span>
+      <a href="Documents\Les Écritures de l'Aube.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+
+  <!-- Document 4 : Bible du culte -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">Bible du culte</span>
+      <a href="Documents\Bible du culte JOUEURS.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+
+  <!-- Document 5 : Les enfants du chaos -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">Les enfants du chaos</span>
+      <a href="Documents\LES ENFANTS DU CHAOS.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+
+  <!-- Document 6 : Lettre de Mana à Cross Marian -->
+    <div class="pdf-lore-item">
+      <span class="pdf-title">Lettre de Mana à Cross Marian</span>
+      <a href="Documents\Lettre de Mana à Cross Marian.pdf" target="_blank" class="pdf-btn">Voir le document</a>
+    </div>
+  </div>
+</div>
 
 <!-- ======================== -->
 <!-- Bouton de retour en haut -->
@@ -556,7 +659,7 @@
 <!-- ==================== -->
 <!-- Bas de page copyright-->
 <!-- ==================== -->
-  <footer class="main-footer text-center py-3">
+<footer class="main-footer text-center py-3">
     <p class="m-0 small">© 2026 Julien ROUVEURE. Tous droits réservés.</p>
 </footer>
 
