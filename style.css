@@ -624,3 +624,108 @@ html {
 .pdf-btn:hover {
   background-color: #2980b9;
 }
+
+/* --- SÉCURITÉ CSS : IMAGE PAR DÉFAUT POUR TOUTES LES GALERIES --- */
+.gallery-grid img {
+  /* Aligne le visuel au centre et s'assure qu'on voit TOUTE l'image sans coupure */
+  background-image: url("Images/pas encore trouvé.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(34, 47, 77, 0.7);
+
+  display: block;
+  min-height: 200px;
+  width: 100%;
+
+  /* SOLUTION 1 : Fait disparaître complètement le pictogramme de fichier cassé du navigateur */
+  visibility: hidden;
+}
+
+/* Redonne la visibilité uniquement au bloc conteneur pour que l'image de fond CSS reste visible */
+.gallery-grid img[src] {
+  visibility: visible;
+}
+
+/* SOLUTION 2 : Désactive complètement le clic et le curseur "main (pointer)" sur cette image d'attente */
+.gallery-grid img {
+  pointer-events: none;
+}
+/* ==========================================================================
+   --- STRUCTURE ET COMPRESSION DE LA COUVERTURE D'ALBUM ---
+   ========================================================================== */
+
+/* Centre le conteneur de l'image sur toute la largeur */
+.album-cover-container {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin-top: 15px !important;
+  margin-bottom: 30px !important;
+  clear: both !important;
+}
+
+/* Gère la taille maximale et bloque l'interactivité */
+.album-cover {
+  width: 100% !important;
+  max-width: 280px !important; /* Ajuste cette valeur si tu la veux plus petite ou plus grande */
+  height: auto !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+
+  /* Bloque complètement le clic et le curseur du JavaScript */
+  pointer-events: none !important;
+  transform: none !important;
+}
+/* --- BOUTON POUR LES PAROLES --- */
+.lyrics-btn {
+  background-color: rgba(20, 28, 46, 0.85) !important;
+  color: #f1c40f !important;
+  border: 1px solid rgba(241, 196, 15, 0.4) !important;
+  padding: 6px 16px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 13px;
+  text-decoration: none !important;
+  text-align: center;
+  margin-top: 10px;
+  width: fit-content;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  pointer-events: auto !important;
+}
+
+/* Effet au survol doux (lueur dorée discrète) */
+.lyrics-btn:hover {
+  background-color: rgba(241, 196, 15, 0.15) !important;
+  border-color: #f1c40f !important;
+  box-shadow: 0 0 8px rgba(241, 196, 15, 0.4);
+  transform: scale(1.03);
+}
+
+/* ==========================================================================
+   --- STYLE TOTALEMENT ADAPTATIF POUR LES CARTES OST ---
+   ========================================================================== */
+
+/* La carte s'adapte automatiquement à la hauteur de son contenu */
+.ost-chapter-fix .ost-item {
+  height: auto !important; /* Permet à la carte de s'agrandir si le titre est long */
+  min-height: 140px !important; /* Hauteur minimale de base pour les titres courts */
+  padding: 15px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important; /* Répartit l'espace verticalement */
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Le lecteur s'adapte à la largeur mais garde sa hauteur native fixe */
+.ost-chapter-fix .ost-player {
+  display: block !important;
+  width: 100% !important; /* S'adapte à la largeur de sa carte */
+  max-width: 270px !important; /* Limite la largeur pour rester propre */
+  height: 40px !important; /* Hauteur fixe pour le lecteur : il ne s'écrase plus */
+  min-height: 40px !important; /* Sécurité absolue anti-écrasement */
+  margin-top: 15px !important; /* Crée un espace adaptatif sous le titre */
+  flex-shrink: 0 !important; /* Interdit au navigateur de compresser ce bloc */
+}
